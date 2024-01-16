@@ -11,9 +11,8 @@ const Form = ({ todo, setTodo, todoList, setTodoList }) => {
     if (todo.name.trim() === "") {
       alert("Please enter a valid task");
     } else {
-      setTodoList([...todoList, { id: nanoid(), name: todo.name, status: false}]);
-      console.log(todoList);
-      setTodo({name: "", status: false});
+      setTodoList([...todoList, { id: nanoid(), name: todo.name, completed: false}]);
+      setTodo({name: "", completed: false});
     }
   };
 

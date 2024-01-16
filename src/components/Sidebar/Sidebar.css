@@ -1,9 +1,11 @@
+@import url(../../color.module.css);
+
 .sidebar{
     flex: 1.2;
     width: 15vw;
     height: 100vh;
-    background-color: #041955;
-    color: rgba(white, white, white, 0.87);
+    background-color: var(--secondary-color);
+    color: var(--ghostwhite-color);
     padding: 20px 20px 20px 20px;
 }
 
@@ -17,12 +19,12 @@
 }
 .nav-links a {
     text-decoration: none;
-    color: whitesmoke;
+    color: var(--ghostwhite-color);
     font-weight: bold;
 }
   
 .nav-links a:hover {
-color: #ffc107; /* Change the color on hover */
+color: var(--primary-color); /* Change the color on hover */
 }
 
 .logo{
