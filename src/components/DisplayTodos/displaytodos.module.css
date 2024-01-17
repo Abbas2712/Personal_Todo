@@ -1,0 +1,67 @@
+.titleName{
+    color: var(--ghostwhite-color);
+    font-weight: var(--font-weight-semi-bold-600);
+    margin:  10px 0px 0px 0px;
+}
+
+#todoList{
+    margin-top: 30px;
+}
+
+p.currentDate{
+    margin: 0px;
+    color: var(--ghostwhite-color);
+    font-weight: var(--font-weight-light-300);
+    font-size: 0.85em;
+}
+
+.subtitleName{
+    color: var(--ghostwhite-color);
+    font-weight: var(--font-weight-light-300);
+}
+
+.completedTitle{    
+    margin-right: 86%;
+    border-radius: 5px;
+    padding: 2px 5px 2px 15px;
+    background-color: var(--secondary-color);
+    color: var(--ghostwhite-color);
+    font-size: 1.1em;
+    font-weight: var(--font-weight-regular-400);
+}
+
+
+#displayContainer{
+    flex:6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: stretch;
+    padding: 30px 50px 20px 50px;
+    height: 100vh;
+    width: 100vh;
+}
+
+.displayTodoList{
+    flex:1;
+    overflow-y: overlay;
+    scroll-behavior: smooth;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: transparent transparent; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.displayTodoList::-webkit-scrollbar{
+    width: 10px;
+}
+.displayTodoList::-webkit-scrollbar-corner{
+    background-color: rgb(130, 130, 130);
+}
+.displayTodoList::-webkit-scrollbar-thumb {
+    background-color:  rgb(130, 130, 130); /* Transparent thumb */
+}
+
+.displayTodoList::-webkit-scrollbar-track {
+    background-color:  transparent; /* Transparent track */
+}

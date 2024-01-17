@@ -1,4 +1,4 @@
-const importantTodos=  () =>{
+const ImportantTodos=  () =>{
     return(
         <div>
             <h1>Important Todos</h1>
@@ -6,4 +6,4 @@ const importantTodos=  () =>{
     )
 }
 
-export default importantTodos;
+export default ImportantTodos;

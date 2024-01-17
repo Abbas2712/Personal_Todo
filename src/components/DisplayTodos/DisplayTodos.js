@@ -1,13 +1,15 @@
 import { useState } from "react";
 import Form from "./Form";
-import styles from '../../style.module.css'
+import styles from './displaytodos.module.css'
 import Todo from "./Todo";
+import DisplayDate from '../DisplayDate'
 
 const DisplayTodos = () => {
     const [todo, setTodo] = useState({name: "", completed: false})
     const [todoList, setTodoList] = useState([])
     const [completedList, setCompletedList] = useState([])
-    
+    const currentdate = DisplayDate()
+
 
     const compeltedTodo = (todoId) => {
         console.log("todolist", todoList)
@@ -45,20 +47,22 @@ const DisplayTodos = () => {
             {/* Task to Complete */}
 
 
-                <h2>My Daily Todo's</h2>
-                {todoList.length === 0 ? <h3>No tasks yet! Add one now.</h3> : todoList.map((todo) => (
-                <div name="todoLists">
-                    {
-                        <Todo key={todo.id} todo={todo} todoList={todoList} setTodoList={setTodoList} onToggle={compeltedTodo} />
-                    }
+                <h2 className={styles.titleName} >My Daily Todo's</h2>
+                <p className={styles.currentDate}>{currentdate}</p>
+                <div id={styles.todoList} className="todoList">
+                    {todoList.length === 0 ? <h3 className={styles.subtitleName}>No tasks yet! Add one now.</h3> : todoList.map((todo) => (
+                    <>
+                        {
+                            <Todo key={todo.id} todo={todo} todoList={todoList} setTodoList={setTodoList} onToggle={compeltedTodo} />
+                        }
+                    </>
+                    ))}
                 </div>
-                ))}
-
 
             {/* Completed Task */}
             {completedList.length === 0 ? null
             : <>
-                <h2>Completed</h2> 
+                <h2 className={styles.completedTitle}>Completed: &nbsp;&nbsp; {completedList.length}</h2> 
                 {completedList.map((todo) => (
                 <div name="todoLists">
                     {
