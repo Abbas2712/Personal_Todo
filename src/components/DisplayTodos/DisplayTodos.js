@@ -50,7 +50,7 @@ const DisplayTodos = () => {
                 <h2 className={styles.titleName} >My Daily Todo's</h2>
                 <p className={styles.currentDate}>{currentdate}</p>
                 <div id={styles.todoList} className="todoList">
-                    {todoList.length === 0 ? <h3 className={styles.subtitleName}>No tasks yet! Add one now.</h3> : todoList.map((todo) => (
+                    {todoList.length === 0 && completedList.length === 0 ? <h3 className={styles.subtitleName}>No tasks yet! Add one now.</h3> : todoList.map((todo) => (
                     <>
                         {
                             <Todo key={todo.id} todo={todo} todoList={todoList} setTodoList={setTodoList} onToggle={compeltedTodo} />

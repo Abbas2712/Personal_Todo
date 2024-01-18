@@ -3,16 +3,22 @@
 .sidebar{
     display: flex;
     flex-direction: column;
-    flex: 1.4;
-    width: 15vw;
+    flex-wrap: wrap;
+    /* flex: 1.4; */
+    width: 17.7vw;
     height: 100vh;
     background-color: var(--primary2-color);
     color: var(--ghostwhite-color);
-    /* padding: 20px 20px 20px 20px; */
 }
 
 .nav-links {
+    display: flex;
+    flex-direction: column;
+    /* flex: 1; */
+    flex-wrap: wrap;
     list-style: none;
+    overflow-y: overlay;
+    scroll-behavior: smooth;
     padding: 0px 5px 20px 5px;
 }
 
@@ -21,9 +27,19 @@ li {
     border-radius: 2px;
 }
 .nav-links a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     text-decoration: none;
     color: var(--ghostwhite-color);
     font-weight: var(--font-weight-regular-400);
+}
+
+.proxyListText{
+    margin: auto;
+    padding: 10px 0px 0px 0px;
+    font-weight: var(--font-weight-light-300);
+    color: var(--ghostwhite-color);
+    opacity: 0.6;
 }
   
 li:hover {
@@ -43,7 +59,7 @@ background-color: var(--secondary-color); /* Change the color on hover */
     flex-wrap: wrap;
     height: auto;
     align-content: stretch;
-    width: 100%;
+    width: inherit;
     border-top: 1px solid rgba(231, 236, 239, 0.4);
 }
 
@@ -61,8 +77,12 @@ background-color: var(--secondary-color); /* Change the color on hover */
     color: #000000;
     padding: 12px 15px 12px 15px;
     margin: 10px 0px 0px 0px;
-    width: 100%;
+    width: inherit;
 }
 .addListInput:focus{
     outline: none;
+}
+
+.newListForm{
+    width: 100%;
 }
