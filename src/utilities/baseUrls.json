@@ -1,0 +1,25 @@
+{
+    "baseUrl":"https://localhost:7242/api",
+    "paths":{
+        "todoItem":{
+            "getTodoItems": "Todoitem",
+            "getOneTodoItem": "Todoitem",
+            "addTodoItem": "Todoitem/createitem",
+            "updateTodoItem": "Todoitem/updateitem",
+            "partialUpdatetodoitem" : "Todoitem",
+            "deleteTodoItem": "Todolist"
+        },
+        "todoList":{
+            "getAllTodoLists" : "TodoList",  
+            "getOneTodoList" : "TodoList",
+            "addTodoList" : "TodoList/createlist",
+            "updateTodoList" : "TodoList/updatelist",
+            "deleteTodoList"  : "Todolist"
+        }
+    },
+    "Headers":{
+        "Content-Type":"application/json;charset=UTF-8",
+        "Accept":"application/json"
+    }
+    
+}

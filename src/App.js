@@ -1,6 +1,6 @@
-import TodoListSidebar from "./components/Sidebar/Sidebar";
-import DisplayTodos from "./components/DisplayTodos/DisplayTodos";
-import ImportantTodos from './components/ImportantTodos';
+import TodoListSidebar from "./components/Sidebar";
+import DisplayTodos from "./pages/DisplayTodos";
+import ImportantTodos from './pages/ImportantTodos';
 import styles from './style.module.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 

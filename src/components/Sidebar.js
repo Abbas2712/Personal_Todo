@@ -22,7 +22,8 @@ const TodoListSidebar = () => {
             <div className="logo">My Todos</div>
             <ul className="nav-links">
                 <li><Link to='/'>My Daily Todo</Link></li>
-                <li><Link to='importanttodos'>Important</Link></li>
+                <li><Link to='important' >Important</Link></li>
+                <li><Link to='tasks'>Tasks</Link></li>
             </ul>
             <div className="userGenList">
                 <ul className="nav-links">
