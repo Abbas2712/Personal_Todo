@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from '../styles/displaytodos.module.css'
 import Form from '../components/Form'
 import DisplayDate from '../components/DisplayDate'
 import Todo from '../components/Todo'
+import listItem from '../apis/todoItemService'
 
 
 const DailyTodos = ()=>{
@@ -10,9 +11,14 @@ const DailyTodos = ()=>{
     const [todoList, setTodoList] = useState([])
     const [completedList, setCompletedList] = useState([])
 
-
     const currentdate = DisplayDate()
 
+    useEffect(()=>{
+        const getData = async()=>{
+            listItem.getTodoItems()
+        }
+        getData()
+    },[])
 
     const compeltedTodo = (todoId) => {
         console.log("todolist", todoList)

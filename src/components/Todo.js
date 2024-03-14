@@ -11,12 +11,11 @@ const Todo = ({ todo, todoList, setTodoList, onToggle }) => {
     const completed = todo.completed ? styles.completed : styles.notCompleted
 
     return (
-        <>
-            <div className={styles.todoitem} >
-                <span className={completed} onClick={()=> onToggle(todo.id)}><h3 className={styles.todoname} >{todo.title}</h3></span>
-                <button onClick={handleDeleteTodo} className={styles.deletebutton}>Done</button>
-            </div>
-        </>)
+        <div className={styles.todoitem} >
+            <span className={completed} onClick={()=> onToggle(todo.id)}><h3 className={styles.todoname} >{todo.title}</h3></span>
+            <button onClick={handleDeleteTodo} className={styles.deletebutton}>Done</button>
+        </div>
+        )
 }
 
 export default React.memo(Todo);

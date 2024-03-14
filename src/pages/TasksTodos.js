@@ -5,7 +5,7 @@ import Todo from "../components/Todo";
 import itemApi from '../apis/todoItemService'
 
 const TaskTodos = () => {
-    const [todo, setTodo] = useState({id:0,title:'',description:'',isCompleted: false,isImportant: false,isTodayTodo: false,isTasked: true})
+    const [todo, setTodo] = useState({id:0,title:'',description:'',isCompleted: false,isImportant: false,isTodayTodo: false,isTasked: true, listId: 0})
     const [todoList, setTodoList] = useState([])
     const [completedList, setCompletedList] = useState([])
 
@@ -56,11 +56,11 @@ const TaskTodos = () => {
                 <div id={styles.todoList} className="todoList">
                     {todoList.length === 0 && completedList.length === 0 ? <h3 className={styles.subtitleName}>No tasks yet! Add one now.</h3> : 
                     todoList.map((todo) => (
-                        <>
+                        <div key={todo.id}>
                             {
                                 <Todo key={todo.id} todo={todo} todoList={todoList} setTodoList={setTodoList} onToggle={compeltedTodo} />
                             }
-                        </>
+                        </div>
                     ))}
                 </div>
 

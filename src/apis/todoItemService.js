@@ -21,4 +21,10 @@ const  getTodoItems = async (setTodoList) => {
  
 }
 
-export default {getSingleTodoItem, getTodoItems }
+const addTodoItem = async (todoItem)=>{
+  await axios.post(urls.baseUrl+"/"+urls.paths.todoItem.addTodoItem,todoItem,urls.Headers)
+  .then(()=>console.log('Added Todo Item'))
+  .catch((err)=>console.log(err))
+}
+
+export default {getSingleTodoItem, getTodoItems, addTodoItem }

@@ -1,17 +1,21 @@
+import { useState } from "react";
 import styles from "../styles/style.module.css";
+import itemApi from "../apis/todoItemService";
 
 const Form = ({ todo, setTodo, todoList, setTodoList, placeHolderText }) => {
+
+  const [todoItem, setTodoItem] = useState({title: '', description: ''})
   const handleChange = (event) => {
-    setTodo({title: event.target.value});
+    setTodoItem({title: event.target.value});
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (todo.title.trim() === "") {
+    if (todoItem.title.trim() === "") {
       alert("Please enter a valid task");
     } else {
-      setTodoList([...todoList, { title: todo.title}]);
-      setTodo({title: ""});
+      itemApi.addTodoItem(todoItem)
+      setTodoItem({title: ""});
     }
   };
 
@@ -20,7 +24,7 @@ const Form = ({ todo, setTodo, todoList, setTodoList, placeHolderText }) => {
       <form className={styles.todoform} onSubmit={handleSubmit}>
         <div className={styles.inputContainer}>
           <input
-            value={todo.title}
+            value={todoItem.title}
             onChange={handleChange}
             className={styles.todoInput}
             placeholder={placeHolderText ? placeHolderText: "What's in your mind Today?"}></input>

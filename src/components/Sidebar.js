@@ -44,13 +44,13 @@ const TodoListSidebar = () => {
                 <ul className="nav-links">
                     {newTodoList.length === 0? <div className='proxyListText'>No list yet? Add One!</div> :
                     newTodoList.map((newList)=>(
-                        <>
+                        <div key={ newList.id}>
                         {
                             <li key={newList.id} onClick={()=>navigate(`/userlist/${newList.listName}`, {state:{'listId': newList.id}})} >
                                 <NavLink to={`/userlist/${newList.listName}`}>{newList.listName}</NavLink>
                             </li>
                         }
-                        </>
+                        </div>
                     )
                     )}
                 </ul>

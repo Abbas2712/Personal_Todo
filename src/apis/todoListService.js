@@ -25,7 +25,7 @@ const getSingleTodoList = async (setTodoList, id) => {
     await axios.get(`${urls.baseUrl}/${urls.paths.todoList.getOneTodoList}/${id}`)
         .then(response => {
             setTodoList(response.data)
-            console.log('Success!', response.data);
+            console.log('Success!', response.data, response.status);
         })
         .catch((error) => {
             console.error(error.message)
