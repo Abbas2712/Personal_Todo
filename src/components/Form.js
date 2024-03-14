@@ -1,18 +1,17 @@
-import styles from "../../style.module.css";
-import { nanoid } from "nanoid";
+import styles from "../styles/style.module.css";
 
-const Form = ({ todo, setTodo, todoList, setTodoList }) => {
+const Form = ({ todo, setTodo, todoList, setTodoList, placeHolderText }) => {
   const handleChange = (event) => {
-    setTodo({name: event.target.value});
+    setTodo({title: event.target.value});
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (todo.name.trim() === "") {
+    if (todo.title.trim() === "") {
       alert("Please enter a valid task");
     } else {
-      setTodoList([...todoList, { id: nanoid(), name: todo.name, completed: false}]);
-      setTodo({name: "", completed: false});
+      setTodoList([...todoList, { title: todo.title}]);
+      setTodo({title: ""});
     }
   };
 
@@ -21,10 +20,10 @@ const Form = ({ todo, setTodo, todoList, setTodoList }) => {
       <form className={styles.todoform} onSubmit={handleSubmit}>
         <div className={styles.inputContainer}>
           <input
-            value={todo.name}
+            value={todo.title}
             onChange={handleChange}
             className={styles.todoInput}
-            placeholder="What's in your mind Today?"></input>
+            placeholder={placeHolderText ? placeHolderText: "What's in your mind Today?"}></input>
           <button type="submit" className={styles.addTodoButton}>
             Add to List
           </button>

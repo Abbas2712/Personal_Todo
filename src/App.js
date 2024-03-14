@@ -1,8 +1,10 @@
 import TodoListSidebar from "./components/Sidebar";
-import DisplayTodos from "./pages/DisplayTodos";
+import TasksTodos from "./pages/TasksTodos";
 import ImportantTodos from './pages/ImportantTodos';
-import styles from './style.module.css';
+import DailyTodos from "./pages/MyDailyTodos";
+import styles from './styles/style.module.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import CustomListPage from "./pages/CustomListPage";
 
 function App() {
   return (
@@ -10,8 +12,10 @@ function App() {
     <div id={styles.App} className="App">
       <TodoListSidebar/>
       <Routes>
-        <Route path="/" element={<DisplayTodos />}></Route>
+        <Route path="/" element={<TasksTodos />}></Route>
         <Route path="/important" element={<ImportantTodos/>}></Route>
+        <Route path="/dailytodo" element={<DailyTodos/>}></Route>
+        <Route path="/userlist/:listname" element={<CustomListPage/>}></Route>
       </Routes>
       {/* <DisplayTodos /> */}
       {/* <Header/> */}

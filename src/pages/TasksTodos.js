@@ -2,13 +2,12 @@ import { useState, useEffect } from "react";
 import Form from "../components/Form";
 import styles from '../styles/displaytodos.module.css'
 import Todo from "../components/Todo";
-import DisplayDate from '../components/DisplayDate'
+import itemApi from '../apis/todoItemService'
 
-const DisplayTodos = () => {
-    const [todo, setTodo] = useState({ name: "", completed: false })
+const TaskTodos = () => {
+    const [todo, setTodo] = useState({id:0,title:'',description:'',isCompleted: false,isImportant: false,isTodayTodo: false,isTasked: true})
     const [todoList, setTodoList] = useState([])
     const [completedList, setCompletedList] = useState([])
-    const currentdate = DisplayDate()
 
 
     const compeltedTodo = (todoId) => {
@@ -42,8 +41,9 @@ const DisplayTodos = () => {
     }
 
     useEffect(()=>{
+        itemApi.getTodoItems(setTodoList)
         
-    },[todoList])
+    },[])
 
 
     return (
@@ -52,10 +52,10 @@ const DisplayTodos = () => {
                 {/* Task to Complete */}
 
 
-                <h2 className={styles.titleName} >My Daily Todo's</h2>
-                <p className={styles.currentDate}>{currentdate}</p>
+                <h2 className={styles.titleName} >Tasks</h2>
                 <div id={styles.todoList} className="todoList">
-                    {todoList.length === 0 && completedList.length === 0 ? <h3 className={styles.subtitleName}>No tasks yet! Add one now.</h3> : todoList.map((todo) => (
+                    {todoList.length === 0 && completedList.length === 0 ? <h3 className={styles.subtitleName}>No tasks yet! Add one now.</h3> : 
+                    todoList.map((todo) => (
                         <>
                             {
                                 <Todo key={todo.id} todo={todo} todoList={todoList} setTodoList={setTodoList} onToggle={compeltedTodo} />
@@ -78,10 +78,10 @@ const DisplayTodos = () => {
                 }
             </div>
 
-            <Form todo={todo} setTodo={setTodo} todoList={todoList} setTodoList={setTodoList} />
+            <Form todo={todo} setTodo={setTodo} todoList={todoList} setTodoList={setTodoList} placeHolderText="Add Your Task!" />
 
         </div>
     );
 }
 
-export default DisplayTodos;
+export default TaskTodos;

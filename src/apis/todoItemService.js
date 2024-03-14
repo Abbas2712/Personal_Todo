@@ -1,10 +1,9 @@
-import React from 'react'
-import {baseUrl, paths} from "../../utilities/baseUrls.json"
+import urls from "../utilities/baseUrls.json"
 import axios from 'axios'
 
-export const getSingleTodoItem = (setTodo) => {
+const getSingleTodoItem = async (setTodo, id) => {
 
-  axios.get(`${baseUrl}/${paths.todoItem.getOneTodoItem}/${id}`)
+  await axios.get(`${urls.baseUrl}/${urls.paths.todoItem.getOneTodoItem}/${id}`)
   .then(res=>{
       res.data?setTodo(res.data):console.log("No data found")
   })
@@ -12,11 +11,14 @@ export const getSingleTodoItem = (setTodo) => {
 
 }
 
-export const getTodoItems = () => {
-  React.useEffect(() => {
-    axios.get(_.baseUrl+"/"+_.paths.todoItem.getTodoItems)
-    .then(res=> res.data)
-  },[])
+const  getTodoItems = async (setTodoList) => {
+
+  await axios.get(urls.baseUrl+"/"+urls.paths.todoItem.getTodoItems)
+  .then(res=> {
+    res.data?
+    setTodoList(res.data,console.log(res.data)): console.log("check backend")})
+  .catch((err)=>console.log(err))
+ 
 }
 
- 
+export default {getSingleTodoItem, getTodoItems }

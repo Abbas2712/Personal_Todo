@@ -97,7 +97,7 @@ span.completed{
 }
 .todoname{
     padding:  2px 2px 2px 15px;
-    font-size: 0.8em;
+    font-size: 0.834em;
     font-weight: var(--font-weight-regular-400);
     /* color: rgba(0, 0, 0, 0.87) */
 }

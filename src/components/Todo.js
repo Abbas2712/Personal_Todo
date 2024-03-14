@@ -1,4 +1,4 @@
-import styles from '../../style.module.css'
+import styles from '../styles/style.module.css'
 import React from "react";
 
 const Todo = ({ todo, todoList, setTodoList, onToggle }) => {
@@ -12,8 +12,8 @@ const Todo = ({ todo, todoList, setTodoList, onToggle }) => {
 
     return (
         <>
-            <div className={styles.todoitem} key={todo.id}>
-                <span className={completed} onClick={()=> onToggle(todo.id)}><h3 className={styles.todoname} >{todo.name}</h3></span>
+            <div className={styles.todoitem} >
+                <span className={completed} onClick={()=> onToggle(todo.id)}><h3 className={styles.todoname} >{todo.title}</h3></span>
                 <button onClick={handleDeleteTodo} className={styles.deletebutton}>Done</button>
             </div>
         </>)
