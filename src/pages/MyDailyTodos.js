@@ -7,17 +7,14 @@ import listItem from '../apis/todoItemService'
 
 
 const DailyTodos = ()=>{
-    const [todo, setTodo] = useState({ name: "", completed: false })
+    const [todo, setTodo] = useState({id:0,title:'',Description:'',isCompleted: false,isImportant: false,isTodayTodo: false,isTasked: true, listId: 0})
     const [todoList, setTodoList] = useState([])
     const [completedList, setCompletedList] = useState([])
 
     const currentdate = DisplayDate()
 
     useEffect(()=>{
-        const getData = async()=>{
-            listItem.getTodoItems()
-        }
-        getData()
+        listItem.getDailyTodoItems(setTodoList)
     },[])
 
     const compeltedTodo = (todoId) => {
@@ -49,6 +46,7 @@ const DailyTodos = ()=>{
             }
         }
     }
+
     // // 1. Get the current date and time using JavaScript's Date object:
     // let now = new Date();
     // // 2. Extract the day of the week (0-6) from
@@ -74,11 +72,11 @@ const DailyTodos = ()=>{
                 <p className={styles.currentDate}>{currentdate}</p>
                 <div id={styles.todoList} className="todoList">
                     {todoList.length === 0 && completedList.length === 0 ? <h3 className={styles.subtitleName}>No tasks yet! Add one now.</h3> : todoList.map((todo) => (
-                        <>
+                        <div key={todo.id}>
                             {
                                 <Todo key={todo.id} todo={todo} todoList={todoList} setTodoList={setTodoList} onToggle={compeltedTodo} />
                             }
-                        </>
+                        </div>
                     ))}
                 </div>
 
@@ -96,7 +94,7 @@ const DailyTodos = ()=>{
                 }
             </div>
 
-            <Form todo={todo} setTodo={setTodo} todoList={todoList} setTodoList={setTodoList} />
+            <Form flag="daily" todo={todo} setTodo={setTodo} todoList={todoList} setTodoList={setTodoList} />
 
         </div>
                 )

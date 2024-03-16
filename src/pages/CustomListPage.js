@@ -47,6 +47,7 @@ const CustomListPage = () => {
         }
     }
 }
+  
   useEffect(() => {
     const getdata  = async () => {
       await listApis.getSingleTodoList(setTodoList, state.listId)
@@ -55,7 +56,7 @@ const CustomListPage = () => {
     getdata()
   }, [state.listId])
   
-  console.log(todoList.items)
+  console.log(todoList)
   const todoitems = todoList.items
   
   return (
@@ -95,7 +96,7 @@ const CustomListPage = () => {
                 
             </div>
 
-            <Form todo={todo} setTodo={setTodo} todoList={todoList} setTodoList={setTodoList} placeHolderText="Add Your Task!" />
+            <Form flag={state.listId} todo={todo} setTodo={setTodo} todoList={todoList} setTodoList={setTodoList} placeHolderText="Add Your Task!" />
 
         </div>
   )

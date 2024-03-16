@@ -42,7 +42,7 @@ const TodoListSidebar = () => {
             </ul>
             <div className="userGenList">
                 <ul className="nav-links">
-                    {newTodoList.length === 0? <div className='proxyListText'>No list yet? Add One!</div> :
+                    {newTodoList.length === 0 ? <div className='proxyListText'>No list yet? Add One!</div> :
                     newTodoList.map((newList)=>(
                         <div key={ newList.id}>
                         {

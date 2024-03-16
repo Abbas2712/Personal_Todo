@@ -5,7 +5,7 @@ import Todo from "../components/Todo";
 import itemApi from '../apis/todoItemService'
 
 const TaskTodos = () => {
-    const [todo, setTodo] = useState({id:0,title:'',description:'',isCompleted: false,isImportant: false,isTodayTodo: false,isTasked: true, listId: 0})
+    const [todo, setTodo] = useState({id:0,title:'',Description:'',isCompleted: false,isImportant: false,isTodayTodo: false,isTasked: true, listId: 0})
     const [todoList, setTodoList] = useState([])
     const [completedList, setCompletedList] = useState([])
 
@@ -78,7 +78,7 @@ const TaskTodos = () => {
                 }
             </div>
 
-            <Form todo={todo} setTodo={setTodo} todoList={todoList} setTodoList={setTodoList} placeHolderText="Add Your Task!" />
+            <Form flag="task" todo={todo} setTodo={setTodo} todoList={todoList} setTodoList={setTodoList} placeHolderText="Add Your Task!" />
 
         </div>
     );

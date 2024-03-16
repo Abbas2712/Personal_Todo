@@ -6,6 +6,8 @@
             "getOneTodoItem": "Todoitem",
             "addTodoItem": "Todoitem/createitem",
             "updateTodoItem": "Todoitem/updateitem",
+            "importantTodoItems": "Todoitem/important",
+            "dailyTodoItems":"Todoitem/daily",
             "partialUpdatetodoitem" : "Todoitem",
             "deleteTodoItem": "Todolist"
         },

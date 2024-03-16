@@ -1,7 +1,8 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import styles from '../styles/displaytodos.module.css'
 import Form from '../components/Form';
 import Todo from '../components/Todo';
+import itemApi from '../apis/todoItemService';
 
 const ImportantTodos= () =>{
     const [todo, setTodo] = useState({ name: "", completed: false })
@@ -37,6 +38,10 @@ const ImportantTodos= () =>{
             }
         }
     }
+
+    useEffect(()=>{
+        itemApi.getImportantTodoItems(setTodoList)
+    },[])
     
     return(
         <div id={styles.displayContainer} className="DisplayContainer">
@@ -70,7 +75,7 @@ const ImportantTodos= () =>{
                 }
             </div>
 
-            <Form todo={todo} setTodo={setTodo} todoList={todoList} setTodoList={setTodoList} placeHolderText="Add Your Important Task!" />
+            <Form flag="important" todo={todo} setTodo={setTodo} todoList={todoList} setTodoList={setTodoList} placeHolderText="Add Your Important Task!" />
         </div>
     )
 }
